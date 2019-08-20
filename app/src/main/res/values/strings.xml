@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ScotiabankPlus</string>
+    <string name="height">Altura(Mt)</string>
+    <string name="weight">Peso(kg)</string>
+</resources>
