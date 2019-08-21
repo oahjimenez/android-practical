@@ -11,7 +11,7 @@ public class BinaryOperator {
     public static final String EQUALS = "=";
     public static final String EMPTY_OPERATOR = "";
 
-    public static final String[] BINARY_OPERATORS = {ADD,SUBSTRACT,MULTIPLY};
+    public static final String[] BINARY_OPERATORS = {ADD,SUBSTRACT,MULTIPLY,EQUALS};
 
 
     public long left;
