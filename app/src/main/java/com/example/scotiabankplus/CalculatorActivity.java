@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +27,9 @@ public class CalculatorActivity extends AppCompatActivity {
     boolean isDigitDirty = false;
     boolean isOperatorDirty = false;
 
+    final String[] KEYBOARD_BUTTONS = {"7","8","9","x","4","5","6","-","1","2","3","+","C","0",".","="};
+
+
     final BinaryOperator stackedBinaryOperator = new BinaryOperator();
     Stack<Long> stackedNumber = new Stack<Long>();
 
@@ -38,18 +44,51 @@ public class CalculatorActivity extends AppCompatActivity {
         TextView result = findViewById(R.id.result);
 
 
-        Button.OnClickListener appendDigitListener = new Button.OnClickListener() {
-            public void onClick(View view) {
+        View.OnClickListener event = (view) -> {
                 Button button = (Button) view;
                 System.out.println(String.format("Clicked button id[%s] Number[%s]",button.getId(),button.getText()));
                 action(button,result,stackedBinaryOperator,resultExpression);
-            }
         };
 
+        /*
         for (int i = 0; i <= TOTAL_BUTTONS; i++) {
             int id = getResources().getIdentifier("button"+i, "id", getPackageName());
             Button digitButton = (Button) findViewById(id);
             digitButton.setOnClickListener(appendDigitListener);
+        }*/
+        initCalculatorKeyboard(event);
+    }
+
+    public void initCalculatorKeyboard(View.OnClickListener event) {
+        TableLayout calculatorKeyboardLayout = findViewById(R.id.calculatorKeyboard);
+        int keyboardGridIndex = 0;
+        int buttonsPerRow = 4;
+        String[][] keyboardGrid = {Arrays.copyOfRange(KEYBOARD_BUTTONS,keyboardGridIndex,keyboardGridIndex+=buttonsPerRow),
+        Arrays.copyOfRange(KEYBOARD_BUTTONS,keyboardGridIndex,keyboardGridIndex+=buttonsPerRow),
+        Arrays.copyOfRange(KEYBOARD_BUTTONS,keyboardGridIndex,keyboardGridIndex+=buttonsPerRow),
+        Arrays.copyOfRange(KEYBOARD_BUTTONS,keyboardGridIndex,keyboardGridIndex+=buttonsPerRow)};
+        for (String[] keyboardRow : keyboardGrid) {
+            TableRow tableRow = new TableRow(this);
+            TableLayout.LayoutParams layoutParams = new TableLayout.LayoutParams(
+                    TableLayout.LayoutParams.FILL_PARENT,
+                    TableLayout.LayoutParams.MATCH_PARENT
+            );
+            tableRow.setLayoutParams(layoutParams);
+            tableRow.setMinimumHeight(100);
+            tableRow.setOrientation(LinearLayout.VERTICAL);
+            for (String keyboardKey: keyboardRow) {
+                Button calculatorButton = new Button(this);
+                TableRow.LayoutParams tableRowParams = new TableRow.LayoutParams(
+                        TableRow.LayoutParams.MATCH_PARENT,
+                        TableRow.LayoutParams.MATCH_PARENT
+                );
+                calculatorButton.setLayoutParams(tableRowParams);
+                calculatorButton.setText(keyboardKey);
+                calculatorButton.setOnClickListener(event);
+                tableRow.addView(calculatorButton);
+
+            }
+            calculatorKeyboardLayout.addView(tableRow);
         }
     }
 
@@ -79,12 +118,13 @@ public class CalculatorActivity extends AppCompatActivity {
                 isOperatorDirty = false;
             }
         }
-        if (Character.isDigit(type.charAt(0))) {
+        Character digit = type.charAt(0);
+        if (Character.isDigit(digit)) {
             if (isDigitDirty) {
                 result.setText(EMPTY_RESULT);
-                isDigitDirty=false;
+                isDigitDirty = false;
             }
-            digitAppender(button,result,resultExpression);
+            digitAppender(button, result, resultExpression);
             isOperatorDirty = false;
         }
     }
@@ -96,8 +136,15 @@ public class CalculatorActivity extends AppCompatActivity {
 
     protected void digitAppender(Button button,TextView result,TextView resultExpression) {
         System.out.println(String.format("Appending digit [%s]",button.getText()));
-        result.append(button.getText());
-        resultExpression.append(button.getText());
+        String resultString = String.valueOf(result.getText());
+        String digit = String.valueOf(button.getText());
+        if (digit.equalsIgnoreCase(ZERO_RESULT) && resultString.startsWith(ZERO_RESULT)) {
+            System.out.println(String.format("Left zero not appended digit [%s]",button.getText()));
+            return;
+        }
+        result.setText(resultString.isEmpty()? resultString : String.valueOf((Long.valueOf(resultString))));
+        result.append(digit);
+        resultExpression.append(digit.isEmpty()? digit : String.valueOf((Long.valueOf(digit))));
     }
 
     protected void resolveBinary(Button button,TextView result,BinaryOperator stackedBinaryOperator,TextView resultExpression) {
