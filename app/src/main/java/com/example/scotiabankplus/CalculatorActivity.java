@@ -58,6 +58,10 @@ public class CalculatorActivity extends AppCompatActivity {
         if (CLEAR.equalsIgnoreCase(type)) {
             result.setText(ZERO_RESULT);
             resultExpression.setText(EMPTY_RESULT);
+            stackedBinaryOperator.clear();
+            stackedNumber.clear();
+            isDigitDirty = false;
+            isOperatorDirty = false;
             return;
         }
         if (!isOperatorDirty) {
@@ -67,11 +71,13 @@ public class CalculatorActivity extends AppCompatActivity {
                 stackedNumber.push(Long.valueOf(result.getText().toString()));
                 resolveBinary(button, result, stackedBinaryOperator, resultExpression);
                 resultAppender(button, result, resultExpression);
+                isOperatorDirty = true;
             }
             if (type.equalsIgnoreCase(BinaryOperator.EQUALS)) {
                 resultExpression.setText(result.getText());
+                isDigitDirty = false;
+                isOperatorDirty = false;
             }
-            isOperatorDirty = true;
         }
         if (Character.isDigit(type.charAt(0))) {
             if (isDigitDirty) {
