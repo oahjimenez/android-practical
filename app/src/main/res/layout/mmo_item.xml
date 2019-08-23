@@ -8,7 +8,8 @@
     <TextView
         android:id="@+id/tabTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"/>
 
     <net.cachapa.expandablelayout.ExpandableLayout
         android:id="@+id/expandable_layout"
