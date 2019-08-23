@@ -4,9 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
 
@@ -30,22 +33,40 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final ViewHolder itemsViewHolder, int i) {
 
+        ImageView fechaImageView = itemsViewHolder.itemView.findViewById(R.id.fechaImage);
+        Glide.with(context).load(R.drawable.calendar_icon).dontAnimate().override(50, 50).into(fechaImageView);
+
         itemsViewHolder.vTitle.setText(items.get(i).getNombre());
         TextView fechaSigno = itemsViewHolder.itemView.findViewById(R.id.fechaSigno);
         fechaSigno.setText(items.get(i).getFechaSigno());
 
+        ImageView amorImageView = itemsViewHolder.itemView.findViewById(R.id.amorImage);
+        Glide.with(context).load(R.drawable.heart_icon).dontAnimate().override(50, 50).into(amorImageView);
+
+
         TextView amor = itemsViewHolder.itemView.findViewById(R.id.amor);
         amor.setText(items.get(i).getAmor());
+
+        ImageView dineroImageView = itemsViewHolder.itemView.findViewById(R.id.dineroImage);
+        Glide.with(context).load(R.drawable.money_icon).dontAnimate().override(50, 50).into(dineroImageView);
 
         TextView dinero = itemsViewHolder.itemView.findViewById(R.id.dinero);
         dinero.setText(items.get(i).getDinero());
 
+        ImageView saludImageView = itemsViewHolder.itemView.findViewById(R.id.saludImage);
+        Glide.with(context).load(R.drawable.health_icon).dontAnimate().override(50, 50).into(saludImageView);
 
         TextView salud = itemsViewHolder.itemView.findViewById(R.id.salud);
         salud.setText(items.get(i).getSalud());
 
+        ImageView colorView = itemsViewHolder.itemView.findViewById(R.id.colorImage);
+        Glide.with(context).load(R.drawable.heart_icon).dontAnimate().override(50, 50).into(colorView);
+
         TextView color = itemsViewHolder.itemView.findViewById(R.id.color);
         color.setText(items.get(i).getColor());
+
+        ImageView numeroImageView = itemsViewHolder.itemView.findViewById(R.id.numeroImage);
+        Glide.with(context).load(R.drawable.luck_icon).dontAnimate().override(50, 50).into(numeroImageView);
 
         TextView numero = itemsViewHolder.itemView.findViewById(R.id.numero);
         numero.setText(items.get(i).getNumero());

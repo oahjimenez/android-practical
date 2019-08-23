@@ -26,6 +26,12 @@
             >
             <TableRow
                 >
+                <ImageView
+                    android:id="@+id/fechaImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -43,6 +49,12 @@
 
             </TableRow>
             <TableRow>
+                <ImageView
+                    android:id="@+id/amorImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -59,6 +71,12 @@
                     />
             </TableRow>
             <TableRow>
+                <ImageView
+                    android:id="@+id/dineroImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -75,6 +93,12 @@
                     />
             </TableRow>
             <TableRow>
+                <ImageView
+                    android:id="@+id/saludImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -91,6 +115,12 @@
                     />
             </TableRow>
             <TableRow>
+                <ImageView
+                    android:id="@+id/colorImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -107,6 +137,12 @@
                     />
             </TableRow>
             <TableRow>
+                <ImageView
+                    android:id="@+id/numeroImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
