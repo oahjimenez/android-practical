@@ -12,16 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListActivity">
+        <activity android:name=".RssLoaderActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ListActivity"></activity>
         <activity
             android:name=".YoliActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".CalculatorActivity"
             android:exported="true" />
