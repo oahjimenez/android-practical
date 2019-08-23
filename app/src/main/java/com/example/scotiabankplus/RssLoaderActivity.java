@@ -32,6 +32,7 @@ public class RssLoaderActivity extends AppCompatActivity {
         final RecyclerView recyclerView = findViewById(R.id.rssView);
         recyclerView.setAdapter(new MMOListAdapter(getApplicationContext(), new ArrayList<>()));
         LinearLayoutManager llmanager = new LinearLayoutManager(this);
+
         llmanager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(llmanager);
         recyclerView.setHasFixedSize(true);
