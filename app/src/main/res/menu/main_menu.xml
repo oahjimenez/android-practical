@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item  android:id="@+id/horoscope"
+        android:title="Horoscopo"/>
+    <item  android:id="@+id/mmofeed"
+        android:title="MMO Feed"/>
+    <item  android:id="@+id/calculator"
+        android:title="Caltulator"
+        app:showAsAction="withText"/>
+</menu>
