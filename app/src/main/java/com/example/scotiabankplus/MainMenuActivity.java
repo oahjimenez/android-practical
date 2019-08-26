@@ -6,19 +6,24 @@ import android.view.MenuInflater;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.scotiabankplus.fragments.MMOFeedFragment;
+import com.example.scotiabankplus.fragments.MMOTitlesFragment;
+import com.example.scotiabankplus.model.MMOFeed;
 
 public class MainMenuActivity extends AppCompatActivity {
 
-
+    protected MMOFeed mmoFeed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
-        MMOFeedFragment feedFragment = new MMOFeedFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.menu_fragment,feedFragment).commit();
+
+
+        mmoFeed = new MMOFeed();
+        mmoFeed.setContext(getApplicationContext());
+        mmoFeed.populate(items -> {
+        });
+        MMOTitlesFragment.setFeed(mmoFeed);
+        setContentView(R.layout.feed_fragment);
     }
 
     @Override

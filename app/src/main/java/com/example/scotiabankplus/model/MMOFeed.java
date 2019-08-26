@@ -83,4 +83,12 @@ public class MMOFeed {
         queue = RequestQueueFactory.getInstance(context).getRequestQueue();
         queue.add(jr);
     }
+
+    public List<String> getTitles() {
+        List<String> titles = new ArrayList<>();
+        for (MMOItem item : mmoItems) {
+            titles.add(item.getTitle());
+        }
+        return titles;
+    }
 }

@@ -17,8 +17,12 @@ import com.example.scotiabankplus.model.MMOFeed;
 
 import java.util.ArrayList;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class MMOFeedFragment extends Fragment {
 
+    @Getter @Setter
     protected MMOFeed mmoFeed;
     protected MMOListAdapter mmoListAdapter;
 
