@@ -20,7 +20,7 @@ public class YaaSThread extends AsyncTask<Void, Void, JSONObject> {
     protected final String YOLI_URI = "https://api.adderou.cl/tyaas/";
     protected RequestQueue queue;
 
-    protected int DEFAULT_TIMEOUT = 10;
+    protected int DEFAULT_TIMEOUT = 15;
 
     public YaaSThread(RequestQueue queue) {
         this.queue = queue;
