@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/employeename"
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/employeeexpandablelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:el_duration="400"
+        app:el_expanded="false"
+        app:el_parallax="0.5">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:padding="50dp"
+            >
+            <TableRow>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:id="@+id/employeefullnames"
+                    />
+            </TableRow>
+        </TableLayout>
+    </net.cachapa.expandablelayout.ExpandableLayout>
+
+</LinearLayout>

@@ -34,10 +34,10 @@ public class YaaSThread extends AsyncTask<Void, Void, JSONObject> {
         queue.add(request);
         try {
             return future.get(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
-
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             System.out.println("Error parsing yoli Response:" + e.getClass().getSimpleName() + e.getMessage());
         }
         return null;
     }
 }
+
