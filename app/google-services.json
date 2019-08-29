@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "264326983338",
+    "firebase_url": "https://android-practical-858fe.firebaseio.com",
+    "project_id": "android-practical-858fe",
+    "storage_bucket": "android-practical-858fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264326983338:android:52b52fd727b8f58f",
+        "android_client_info": {
+          "package_name": "com.example.scotiabankplus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264326983338-2chhnjmjnjk9r0slslrr00lppj9fv18v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.scotiabankplus",
+            "certificate_hash": "7a38c960ef1c8d14c61fab51e8f12762a85b62e9"
+          }
+        },
+        {
+          "client_id": "264326983338-b4kfj49f05dkgq3tcqpt2qgohmv0ks4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsMqzmZsfdJjmu5iAfKNHzH3Nke0ejQfo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264326983338-b4kfj49f05dkgq3tcqpt2qgohmv0ks4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
